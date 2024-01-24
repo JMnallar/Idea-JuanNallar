@@ -1,26 +1,36 @@
-var musicSimulator = {
-    musicTypesSelect: document.getElementById('musicTypes'),
-    btn: document.getElementById('btn'),
+document.addEventListener('DOMContentLoaded', function () {
+    const musicForm = document.getElementById('musicForm');
+    const musicTypesSelect = document.getElementById('musicTypes');
+    const btn = document.getElementById('btn');
+    const resultElement = document.getElementById('result');
 
-    init: function () {
-        this.btn.addEventListener('click', this.mostrarCantidadSeleccionada.bind(this));
-    },
+    // Cargar datos almacenados al inicio
+    cargarDatos();
 
-    mostrarCantidadSeleccionada: function () {
-        var numberSelected = this.obtenerNumeroSeleccionado();
-        alert("Número de opciones seleccionadas: " + numberSelected);
-        // Puedes realizar otras operaciones o mostrar el resultado de diferentes maneras según tus necesidades
-    },
+    btn.addEventListener('click', function () {
+        const numberSelected = obtenerNumeroSeleccionado(musicTypesSelect);
+        mostrarCantidadSeleccionada(numberSelected);
+        // Guardar datos al hacer clic en el botón
+        guardarDatos(numberSelected);
+    });
 
-    obtenerNumeroSeleccionado: function () {
-        var numberSelected = 0;
-        for (var i = 0; i < this.musicTypesSelect.options.length; i++) {
-            if (this.musicTypesSelect.options[i].selected) {
-                numberSelected++;
-            }
-        }
-        return numberSelected;
+    function obtenerNumeroSeleccionado(selectObject) {
+        return [...selectObject.options].filter(option => option.selected).length;
     }
-};
 
-musicSimulator.init();
+    function mostrarCantidadSeleccionada(numberSelected) {
+        resultElement.textContent = `Número de opciones seleccionadas: ${numberSelected}`;
+    }
+
+    function guardarDatos(data) {
+        // Almacenar en el LocalStorage
+        localStorage.setItem('musicData', JSON.stringify({ numberSelected: data }));
+    }
+
+    function cargarDatos() {
+        // Recuperar datos del LocalStorage
+        const { numberSelected } = JSON.parse(localStorage.getItem('musicData')) || { numberSelected: 0 };
+        mostrarCantidadSeleccionada(numberSelected);
+    }
+
+});

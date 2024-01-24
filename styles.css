@@ -1,54 +1,49 @@
-/* Reset de estilos para evitar inconsistencias entre navegadores */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Estilo general del cuerpo de la página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* Fondo gris claro */
-    color: #333; /* Texto negro */
+    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilo del formulario */
-form {
-    max-width: 600px; /* Ancho máximo del formulario */
-    margin: 20px auto; /* Centrar el formulario en la página */
-    background-color: #fff; /* Fondo blanco */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 20px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+#musicForm {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo del título del formulario */
-form label {
-    display: block; /* Mostrar en bloque */
-    margin-bottom: 10px; /* Espaciado inferior */
-    font-family: monospace; /* Tipo de letra monospace */
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-/* Estilo del campo de selección */
 select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-/* Estilo del botón */
-input[type="button"] {
-    padding: 10px 15px;
-    background-color: #add8e6; /* Color celeste claro */
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    color: #fff; /* Texto blanco */
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-/* Estilo del botón al pasar el ratón sobre él */
-input[type="button"]:hover {
-    background-color: #5fa2db; /* Color celeste más oscuro al pasar el ratón */
+button:hover {
+    background-color: #2078ae;
+}
+
+#result {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
 }
